@@ -1,12 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
+    <ion-title
+    slot="start">
+      TP: TMDB
     </ion-title>
+    <ion-buttons
+    slot="end">
+      <ion-button
+        type="button"
+        >
+        RANDOM
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
+  <ion-searchbar></ion-searchbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Les Films du jour</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let film of films">
+      <ion-label>{{film.title | uppercase}}</ion-label>
+      <ion-button
+      type="button"
+      (click)="log(film)">
+        Consulter
+      </ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>
